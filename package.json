@@ -24,7 +24,6 @@
   "homepage": "https://github.com/asamiller/its-log",
   "dependencies": {
     "lodash": "^2.4.1",
-    "string": "^3.0.0",
     "winston": "^0.8.3",
     "winston-orchestrate": "git://github.com/asamiller/winston-orchestrate.git"
   },
