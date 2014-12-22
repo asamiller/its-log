@@ -59,5 +59,12 @@ describe('Internal Functions', function () {
 				done();
 			});
 		});
+
+		it('should return a success even without tags and metadata', function (done) {
+			log.info('Hello distributed log files!', function (err) {
+				if (err) throw new Error(err);
+				done();
+			});
+		});
 	});
 });
