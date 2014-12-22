@@ -27,13 +27,28 @@ describe('Internal Functions', function () {
 		});
 	});
 
-	describe('#buildEventMetaData()', function () {
+	describe('#_findTags()', function () {
+		it('should return the correct tags', function () {
+			var tags = log._findTags('some event #WithTags and text #moretags');
+			tags.should.include('WithTags');
+			tags.should.include('moretags');
+		});
+	});
+
+	describe('#customWinstonFormater()', function () {
 		it('should return the correct data', function () {
-			var data = log._buildEventMetaData('some event #WithTags and text #moretags');
+			var data = log._customWinstonFormater('info', 'this is a message #withatag', {a: 'b'});
+
+			data.should.have.property('level').to.equal('info');
+			data.should.have.property('message').to.equal('this is a message #withatag');
+
+			data.should.have.property('meta');
+			data.meta.should.have.property('a').to.equal('b');
+
 			data.should.have.property('file').to.equal('test.js');
-			data.should.have.property('tags').to.include('test');
-			data.should.have.property('tags').to.include('WithTags');
-			data.should.have.property('tags').to.include('moretags');
+			data.should.have.property('tags');
+			data.tags.should.include('test');
+			data.tags.should.include('withatag');
 		});
 	});
 
