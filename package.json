@@ -1,0 +1,41 @@
+{
+  "name": "its-log",
+  "version": "0.0.1",
+  "description": "It's Log, Log, it's better than bad, it's good!",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "npm run jshint && npm run mocha",
+    "debug": "npm run jshint && NODE_DEBUG=true npm run mocha",
+    "jshint": "./node_modules/.bin/jshint lib test",
+    "jscoverage": "./node_modules/.bin/jscoverage lib lib-cov",
+    "mocha": "./node_modules/.bin/mocha -R spec",
+    "report": "./node_modules/.bin/mocha -R html-cov > coverage.html",
+    "coveralls": "./node_modules/.bin/mocha -R mocha-lcov-reporter | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asamiller/its-log.git"
+  },
+  "author": "Asa Miller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/asamiller/its-log/issues"
+  },
+  "homepage": "https://github.com/asamiller/its-log",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "string": "^3.0.0",
+    "winston": "^0.8.3",
+    "winston-orchestrate": "git://github.com/asamiller/winston-orchestrate.git"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "coveralls": "^2.11.1",
+    "dotenv": "^0.4.0",
+    "jscoverage": "^0.5.6",
+    "jshint": "^2.5.5",
+    "mocha": "^1.21.4",
+    "mocha-lcov-reporter": "0.0.1",
+    "nock": "^0.46.0"
+  }
+}
